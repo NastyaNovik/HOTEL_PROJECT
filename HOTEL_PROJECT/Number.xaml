@@ -21,7 +21,7 @@
 		<TextBlock x:Name="cost" FontSize="18" Grid.Column="1" HorizontalAlignment="Left" Margin="248.4,151,0,0"   VerticalAlignment="Top" Height="30" Width="138" />
 		<TextBlock x:Name="cat"  FontSize="18" Grid.Column="1" HorizontalAlignment="Left" Margin="146.4,81,0,0"  VerticalAlignment="Top" Height="30" Width="170" />
 		<TextBlock x:Name="countofseats"  Grid.Column="1" FontSize="18" Margin="267.4,118,253.6,272" Height="30"/>
-		<Image x:Name="photo" Grid.Column="0" HorizontalAlignment="Left" Height="184" Margin="65,40,0,0" VerticalAlignment="Top" Width="283"/>
+		<Image x:Name="photo" Grid.Column="0" HorizontalAlignment="Left" Height="184" Margin="52,40,0,0" VerticalAlignment="Top" Width="283"/>
 		<Label Content="Номер: " FontSize="17" Grid.Column="1" HorizontalAlignment="Left" Margin="10.4,40,0,0" VerticalAlignment="Top">
 			<Label.Effect>
 				<DropShadowEffect

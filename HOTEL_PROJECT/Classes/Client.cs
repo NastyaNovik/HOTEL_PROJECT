@@ -27,6 +27,7 @@ namespace HOTEL_PROJECT.Classes
             this.DateOfBirthday = DateOfBirthday;
             this.PhoneNumber = PhoneNumber;
         }
+        public Client() { }
 
     }
 }

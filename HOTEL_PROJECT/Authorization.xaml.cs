@@ -86,7 +86,7 @@ namespace HOTEL_PROJECT
                         }
                         else
                         {
-                            Empuser empWindow = new Empuser(loginText.Text);
+                            Empuser empWindow = new Empuser(loginText.Text, employee.EmployeeId);
                             empWindow.Show();
                             this.Close();
                         }
@@ -99,25 +99,6 @@ namespace HOTEL_PROJECT
             }
 
         }
-
-        private void password_GotFocus(object sender, RoutedEventArgs e)
-        {
-            tooltip.Opacity = 0;
-            passwordText.Background = Brushes.White;
-            passwordText.Opacity = 1;
-        }
-
-        private void password_LostFocus(object sender, RoutedEventArgs e)
-        {
-            passwordText.Password = passwordText.Password.Trim();
-            if (passwordText.Password == ""|| passwordText.Password.Length!=16)
-            {
-                tooltip.Opacity = 1;
-                passwordText.Background = Brushes.Salmon;
-                passwordText.Opacity = 0.7;
-            }
-        }
-
       
 
         private void View_Click(object sender, RoutedEventArgs e)

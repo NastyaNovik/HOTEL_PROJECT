@@ -64,7 +64,7 @@
                  Opacity="0.5"/>
 			</Label.Effect>
 		</Label>
-		<PasswordBox  x:Name="passwordText" Grid.Column="1" FontSize="16" HorizontalAlignment="Center" Height="25" Margin="0,230,0,0"   VerticalAlignment="Top" Width="160" BorderBrush="#FF3A3838" LostFocus="password_LostFocus" GotFocus="password_GotFocus">
+		<PasswordBox  x:Name="passwordText" Grid.Column="1" FontSize="16" HorizontalAlignment="Center" Height="25" Margin="0,230,0,0"   VerticalAlignment="Top" Width="160" BorderBrush="#FF3A3838">
 			<PasswordBox.Effect>
 				<DropShadowEffect
                  ShadowDepth="4"
@@ -73,7 +73,7 @@
                  Opacity="0.5"/>
 			</PasswordBox.Effect>
 		</PasswordBox>
-		<TextBox  x:Name="passwordTextB" Grid.Column="1" Visibility="Hidden"  FontSize="16" HorizontalAlignment="Center" Height="25" Margin="0,230,0,0"   VerticalAlignment="Top" Width="160" BorderBrush="#FF3A3838" LostFocus="password_LostFocus" GotFocus="password_GotFocus">
+		<TextBox  x:Name="passwordTextB" Grid.Column="1" Visibility="Hidden"  FontSize="16" HorizontalAlignment="Center" Height="25" Margin="0,230,0,0"   VerticalAlignment="Top" Width="160" BorderBrush="#FF3A3838">
 			<TextBox.Effect>
 				<DropShadowEffect
                  ShadowDepth="4"
@@ -92,16 +92,7 @@
 			</Button.Effect>
 			
 		</Button>
-		<Label x:Name="tooltip" Content="Пароль должен быть &#xA;16 символов"  Foreground="White" Opacity="0" FontSize="12" Grid.Column="1" HorizontalAlignment="Left" Margin="18,255,0,0" VerticalAlignment="Top"  FontFamily="Century Gothic" Height="45" Width="161">
-			<Label.Effect>
-				<DropShadowEffect
-			  ShadowDepth="4"
-			  Direction="330"
-			  Color="Black"
-			  Opacity="0.5"/>
-			</Label.Effect>
-		</Label>
-
+		
 	</Grid>
 
 </Window>

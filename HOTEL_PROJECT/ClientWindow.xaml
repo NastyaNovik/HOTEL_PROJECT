@@ -1,11 +1,11 @@
-﻿<Window x:Class="HOTEL_PROJECT.Client"
+﻿<Window x:Class="HOTEL_PROJECT.ClientWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HOTEL_PROJECT"
         mc:Ignorable="d"
-        Title="Регистрация клиента" Height="650" Width="400">
+        Title="Регистрация клиента" Height="650" Width="400" WindowStartupLocation="CenterScreen">
 	<Grid>
 		<Grid.Background>
 			<ImageBrush ImageSource="Images/972-9721456_humo-.png"/>
@@ -72,7 +72,7 @@
 					Opacity="0.5"/>
 			</Label.Effect>
 		</Label>
-		<Button x:Name="addClient" IsEnabled="True" Template="{DynamicResource shabl7}" FontSize="18" Foreground="White" HorizontalAlignment="Left" Margin="76,551,0,0" VerticalAlignment="Top" Width="237" Height="40" />
+		<Button x:Name="addClient" IsEnabled="True" Template="{DynamicResource shabl7}" FontSize="18" Foreground="White" HorizontalAlignment="Left" Margin="76,551,0,0" VerticalAlignment="Top" Width="237" Height="40" Click="addClient_Click" />
 
 	</Grid>
 </Window>

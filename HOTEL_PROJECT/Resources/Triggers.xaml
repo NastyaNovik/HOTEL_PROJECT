@@ -13,6 +13,7 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
+	
     <ControlTemplate  x:Key="shabl2" TargetType="Button">
         <Border  BorderBrush="#FFB8B8D0"  BorderThickness="1" Height="40" Width="228" Background ="#FF2F2C2C" >
 
@@ -27,9 +28,9 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
     <ControlTemplate  x:Key="shabl3" TargetType="Button">
-        <Border  BorderBrush="#FFB8B8D0"  BorderThickness="1" Height="30" Width="145" Background ="#FF2F2C2C" Opacity="0.7">
+        <Border  BorderBrush="#FFB8B8D0"  BorderThickness="1" Height="40" Width="228" Background ="#FF2F2C2C">
 
-            <ContentControl Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Авторизация" />
+            <ContentControl Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Забронировать" />
 
         </Border>
         <ControlTemplate.Triggers>

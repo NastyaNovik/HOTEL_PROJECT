@@ -8,6 +8,7 @@ namespace HOTEL_PROJECT.Classes
 {
     public class Apartment
     {
+        public int Id { get; set; }
         public int Number { get; set; }
         public string Category { get; set; }
         public int CountOfSeats { get; set; }
@@ -18,6 +19,17 @@ namespace HOTEL_PROJECT.Classes
 
         public Apartment(int Number,string Category, int CountOfSeats, double CostPerDay, string Status, string Description, byte[] img)
         {
+            this.Number = Number;
+            this.Category = Category;
+            this.CountOfSeats = CountOfSeats;
+            this.CostPerDay = CostPerDay;
+            this.Status = Status;
+            this.Description = Description;
+            this.img = img;
+        }
+        public Apartment(int Id,int Number, string Category, int CountOfSeats, double CostPerDay, string Status, string Description, byte[] img)
+        {
+            this.Id = Id;
             this.Number = Number;
             this.Category = Category;
             this.CountOfSeats = CountOfSeats;

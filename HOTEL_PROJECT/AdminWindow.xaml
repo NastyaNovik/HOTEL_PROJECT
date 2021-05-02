@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HOTEL_PROJECT"
         mc:Ignorable="d"
-        Title="Окно администратора" Height="700" Width="1400" WindowStartupLocation="CenterScreen">
+        Title="Окно администратора" Height="700" Width="1400" WindowStartupLocation="CenterScreen" >
 	<Grid>
 
 		<Rectangle Fill="#FF13131D" HorizontalAlignment="Left" Height="47" Margin="0,0,-0.4,0" Stroke="Black" VerticalAlignment="Top" Width="1400"/>

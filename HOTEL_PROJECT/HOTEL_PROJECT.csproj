@@ -80,8 +80,10 @@
     </ApplicationDefinition>
     <Compile Include="Classes\Apartment.cs" />
     <Compile Include="Classes\Client.cs" />
+    <Compile Include="Classes\Roomer.cs" />
+    <Compile Include="Classes\Service.cs" />
     <Compile Include="Client.xaml.cs">
-      <DependentUpon>Client.xaml</DependentUpon>
+      <DependentUpon>ClientWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Empuser.xaml.cs">
       <DependentUpon>Empuser.xaml</DependentUpon>
@@ -91,6 +93,12 @@
     </Compile>
     <Compile Include="OracleDatabaseConnection.cs" />
     <Compile Include="Classes\Employee.cs" />
+    <Compile Include="Payment.xaml.cs">
+      <DependentUpon>Payment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation.xaml.cs">
+      <DependentUpon>Reservation.xaml</DependentUpon>
+    </Compile>
     <Page Include="AdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -110,7 +118,7 @@
       <DependentUpon>Authorization.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Client.xaml">
+    <Page Include="ClientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,6 +127,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Number.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Payment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reservation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,16 +177,10 @@
     <Resource Include="Images\dar.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\fff.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\programmer.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\972-9721456_humo-.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\buildings.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

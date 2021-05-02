@@ -1,0 +1,114 @@
+﻿<Window x:Class="HOTEL_PROJECT.Reservation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HOTEL_PROJECT"
+        mc:Ignorable="d"
+        Title="Бронирование" Height="550" Width="800" WindowStartupLocation="CenterScreen">
+	<Grid>
+		<Grid.Background>
+			<ImageBrush ImageSource="Images/972-9721456_humo-.png"/>
+		</Grid.Background>
+		<Rectangle Fill="#FF616168" Opacity="0.8" HorizontalAlignment="Left" Height="103" Stroke="Black" VerticalAlignment="Top" Width="796" Margin="-2,47,-0.4,0"/>
+		<Rectangle Fill="#FF616168" Opacity="0.8" HorizontalAlignment="Left" Height="103" Stroke="Black" VerticalAlignment="Top" Width="796" Margin="0,151,-2.4,0"/>
+		<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="88" Margin="10,55,0,0" VerticalAlignment="Top" Width="764"/>
+
+		<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="88" Margin="10,158,0,0" VerticalAlignment="Top" Width="764"/>
+		<ComboBox x:Name="servic_combo" FontSize="20" IsEditable="True" IsReadOnly="False" HorizontalAlignment="Left" Margin="471,302,0,0" VerticalAlignment="Top" Width="258" Height="40" >
+			<ComboBox.Effect>
+				<DropShadowEffect
+                 ShadowDepth="4"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+			</ComboBox.Effect>
+		</ComboBox>
+		<Button x:Name="addClient" IsEnabled="True" Template="{DynamicResource shabl3}" FontSize="18" Foreground="White" HorizontalAlignment="Left" Margin="284,461,0,0" VerticalAlignment="Top" Width="228" Height="40" Click="addClient_Click"  />
+
+		<TextBlock x:Name="FEmp" Foreground="White" HorizontalAlignment="Left" FontSize="20" Margin="37,194,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="40" Width="207"/>
+		<TextBlock x:Name="IEmp" Foreground="White"  HorizontalAlignment="Left" FontSize="20" Margin="276,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="207"/>
+		<TextBlock x:Name="OEmp" Foreground="White"  HorizontalAlignment="Left" FontSize="20" Margin="522,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="207"/>
+
+		<Rectangle Fill="#FF13131D" HorizontalAlignment="Left" Height="47" Stroke="Black" VerticalAlignment="Top" Width="800" Margin="-2,0,-4.4,0"/>
+		<Image HorizontalAlignment="Left" Height="34" Margin="10,7,0,0" Source="Images/programmer.png" VerticalAlignment="Top" Width="27"/>
+		<TextBlock x:Name="loginName" Text=""  Foreground="White"  FontSize="22" HorizontalAlignment="Left" Margin="42,10,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Width="118">
+			<TextBlock.Effect>
+				<DropShadowEffect
+			  ShadowDepth="4"
+			  Direction="330"
+			  Color="Black"
+			  Opacity="0.5"/>
+			</TextBlock.Effect>
+		</TextBlock>
+		<TextBlock x:Name="surnameClient" Foreground="White" HorizontalAlignment="Left" FontSize="20" Margin="37,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="207"/>
+		<TextBlock x:Name="nameClient" Foreground="White" HorizontalAlignment="Left" FontSize="20" Margin="276,87,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="40" Width="207"/>
+		<TextBlock x:Name="secondNameClient" Foreground="White" HorizontalAlignment="Left" FontSize="20" Margin="522,87,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="40" Width="207"/>
+		<DatePicker x:Name="Dateofarrival" HorizontalAlignment="Left" Margin="68,404,0,0" VerticalAlignment="Top" Height="40" Width="258" FontSize="22" CalendarClosed="Dateofarrival_CalendarClosed"/>
+		<DatePicker x:Name="Dateofadeparture" HorizontalAlignment="Left" Margin="471,404,0,0" VerticalAlignment="Top" Height="40" Width="258" FontSize="22"/>
+
+		<ComboBox x:Name="apartment_combo" FontSize="20" IsEditable="True" IsReadOnly="False" HorizontalAlignment="Left" Margin="68,302,0,0" VerticalAlignment="Top" Width="258" Height="40" >
+			<ComboBox.Effect>
+				<DropShadowEffect
+			  ShadowDepth="4"
+			  Direction="330"
+			  Color="Black"
+			  Opacity="0.5"/>
+			</ComboBox.Effect>
+		</ComboBox>
+		<Label Content="ФИО клиента"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="33,52,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic">
+			<Label.Effect>
+				<DropShadowEffect
+			  ShadowDepth="4"
+			  Direction="330"
+			  Color="Black"
+			  Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+		<Label Content="ФИО сотрудника"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="33,155,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic">
+			<Label.Effect>
+				<DropShadowEffect
+			  ShadowDepth="4"
+			  Direction="330"
+			  Color="Black"
+			  Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+		<Label Content="Выберите номер"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="68,265,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic">
+			<Label.Effect>
+				<DropShadowEffect
+			  ShadowDepth="4"
+			  Direction="330"
+			  Color="Black"
+			  Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+		<Label Content="Выберите услугу"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="471,265,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic">
+			<Label.Effect>
+				<DropShadowEffect
+			  ShadowDepth="4"
+			  Direction="330"
+			  Color="Black"
+			  Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+		<Label Content="Выберите дату заселения"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="68,367,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic">
+			<Label.Effect>
+				<DropShadowEffect
+			  ShadowDepth="4"
+			  Direction="330"
+			  Color="Black"
+			  Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+		<Label Content="Выберите дату выселения"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="471,367,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic">
+			<Label.Effect>
+				<DropShadowEffect
+			  ShadowDepth="4"
+			  Direction="330"
+			  Color="Black"
+			  Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+	</Grid>
+</Window>

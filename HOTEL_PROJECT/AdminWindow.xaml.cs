@@ -129,80 +129,73 @@ namespace HOTEL_PROJECT
                     connection.Open();
                     OracleParameter login = new OracleParameter
                     {
-                        ParameterName = "Login",
+                        ParameterName = "Login_in",
                         Direction = ParameterDirection.Input,
                         OracleDbType = OracleDbType.Varchar2,
                         Value = loginEnter.Text
                     };
                     OracleParameter password = new OracleParameter
                     {
-                        ParameterName = "Password",
+                        ParameterName = "Password_in",
                         Direction = ParameterDirection.Input,
                         OracleDbType = OracleDbType.Varchar2,
                         Value = passwordEnter.Text
                     };
                     OracleParameter surname = new OracleParameter
                     {
-                        ParameterName = "Surname",
+                        ParameterName = "Surname_in",
                         Direction = ParameterDirection.Input,
                         OracleDbType = OracleDbType.Varchar2,
                         Value = Surname.Text
                     };
                     OracleParameter name = new OracleParameter
                     {
-                        ParameterName = "Name",
+                        ParameterName = "Name_in",
                         Direction = ParameterDirection.Input,
                         OracleDbType = OracleDbType.Varchar2,
                         Value = Name.Text
                     };
                     OracleParameter secondName = new OracleParameter
                     {
-                        ParameterName = "SecondName",
+                        ParameterName = "SecondName_in",
                         Direction = ParameterDirection.Input,
                         OracleDbType = OracleDbType.Varchar2,
                         Value = Secondname.Text
                     };
                     OracleParameter salary = new OracleParameter
                     {
-                        ParameterName = "Salary",
+                        ParameterName = "Salary_in",
                         Direction = ParameterDirection.Input,
                         OracleDbType = OracleDbType.Decimal,
                         Value = Decimal.Parse(Salary.Text)
                     };
                     OracleParameter phoneNumber = new OracleParameter
                     {
-                        ParameterName = "PhoneNumber",
+                        ParameterName = "PhoneNumber_in",
                         Direction = ParameterDirection.Input,
                         OracleDbType = OracleDbType.Varchar2,
                         Value = PhoneNumber.Text
                     };
                     OracleParameter position = new OracleParameter
                     {
-                        ParameterName = "EmpPosition",
+                        ParameterName = "EmpPosition_in",
                         Direction = ParameterDirection.Input,
                         OracleDbType = OracleDbType.Varchar2,
                         Value = position_combo.Text
                     };
                     OracleParameter dateOfHiring = new OracleParameter
                     {
-                        ParameterName = "DateOfHiring",
+                        ParameterName = "DateOfHiring_in",
                         Direction = ParameterDirection.Input,
                         OracleDbType = OracleDbType.Date,
                         Value = Dateofhiring.SelectedDate
                     };
                     OracleParameter dateOfBirth = new OracleParameter
                     {
-                        ParameterName = "DateOfBirth",
+                        ParameterName = "DateOfBirth_in",
                         Direction = ParameterDirection.Input,
                         OracleDbType = OracleDbType.Date,
                         Value = Dateofbirthday.SelectedDate
-                    };
-                    OracleParameter accesslevel = new OracleParameter
-                    {
-                        ParameterName = "AccessLevel",
-                        Direction = ParameterDirection.Input,
-                        OracleDbType = OracleDbType.Int32,
-                        Value = AccessLevel.Text
                     };
 
                     using (OracleCommand command = new OracleCommand("addUser_record"))
@@ -210,7 +203,7 @@ namespace HOTEL_PROJECT
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddRange(new OracleParameter[] { login,password,surname,name,secondName,salary,phoneNumber,
-                        position,dateOfHiring,dateOfBirth,accesslevel});
+                        position,dateOfHiring,dateOfBirth});
                         command.ExecuteNonQuery();
                         MessageBox.Show("Сотрудник успешно добавлен!");
                     }
@@ -332,13 +325,6 @@ namespace HOTEL_PROJECT
 
         }
 
-        private void refresh_Click(object sender, RoutedEventArgs e)
-        {
-            all_employees.Clear();
-            getEmployees();
-            employees.ItemsSource = all_employees;
-        }
-
         private void dismissal_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -394,6 +380,15 @@ namespace HOTEL_PROJECT
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+       
+
+        private void refresh_Click(object sender, RoutedEventArgs e)
+        {
+            all_employees.Clear();
+            getEmployees();
+            employees.ItemsSource = all_employees;
         }
     }
 }

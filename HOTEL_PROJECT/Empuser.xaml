@@ -5,12 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HOTEL_PROJECT"
         mc:Ignorable="d"
-        Title="Окно сотрудника" Height="700" Width="1200" WindowStartupLocation="CenterScreen">
+        Title="Окно сотрудника" Height="700" Width="1200" WindowStartupLocation="CenterScreen" Activated="Window_Activated">
+
 	<Grid>
-		<TabControl HorizontalAlignment="Left" Height="623" Margin="0,47,-0.4,0" VerticalAlignment="Top" Width="1194">
+		<TabControl HorizontalAlignment="Left" Height="623" Margin="0,47,-0.4,0" VerticalAlignment="Top" FontSize="20" Width="1200" FontFamily="Century Gothic">
 			<TabItem Header="Клиенты">
-				<DataGrid x:Name="employees" HorizontalAlignment="Left" Height="525" VerticalAlignment="Top" Width="1200" EnableRowVirtualization="False" IsReadOnly="True" Opacity="0.9" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeColumns="False"
-							   CanUserResizeRows="False" CanUserReorderColumns="False" FontSize="18" Grid.ColumnSpan="4" Margin="-2,0,-10,-9.4">
+
+				<TabItem.Background>
+					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+						<GradientStop Color="#FF4C4242" Offset="0"/>
+						<GradientStop Color="#FFC3BDBD" Offset="1"/>
+					</LinearGradientBrush>
+				</TabItem.Background>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="597*"/>
+						<ColumnDefinition Width="401*"/>
+					</Grid.ColumnDefinitions>
+					<DataGrid x:Name="clientsgrid" HorizontalAlignment="Left" Height="525" VerticalAlignment="Top" Width="1200" EnableRowVirtualization="False" IsReadOnly="True" Opacity="0.9" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeColumns="False"
+							   CanUserResizeRows="False" CanUserReorderColumns="False" FontSize="18" Grid.ColumnSpan="2" Margin="-2,0,0,0" MouseDoubleClick="clientsgrid_MouseDoubleClick">
+						<DataGrid.Resources>
+							<Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+								<Setter Property="Background" Value="#FF13131D"  />
+								<Setter Property="Foreground" Value="White"  />
+							</Style>
+
+						</DataGrid.Resources>
+						<DataGrid.Background>
+							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+								<GradientStop Color="#FFA9A19F" Offset="0"/>
+								<GradientStop Color="White" Offset="1"/>
+							</LinearGradientBrush>
+						</DataGrid.Background>
+						
+						<DataGrid.Columns>
+							<DataGridTextColumn FontWeight="Bold"  Binding="{Binding Surname}"  Header="Фамилия" Width="*" />
+							<DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="*"/>
+							<DataGridTextColumn Binding="{Binding Secondname}" Header="Отчество" Width="*"/>
+							<DataGridTextColumn Binding="{Binding PassportId}" Header="Номер паспорта" Width="*"/>
+							<DataGridTextColumn Binding="{Binding DateOfBirthday}" Header="Дата рождения" Width="*"/>
+							<DataGridTextColumn Binding="{Binding PhoneNumber}" Header="Телефон" Width="*"/>
+
+						</DataGrid.Columns>
+					</DataGrid>
+					<Button x:Name="addClient" IsEnabled="True" Template="{DynamicResource shabl2}" FontSize="18" Foreground="White" HorizontalAlignment="Left" Margin="486,537,0,0" VerticalAlignment="Top" Width="228" Height="40" Click="addClient_Click"  />
+				</Grid>
+			</TabItem>
+			<TabItem Header="Постояльцы">
+				<TabItem.Background>
+					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+						<GradientStop Color="#FF4C4242" Offset="0"/>
+						<GradientStop Color="#FFC3BDBD" Offset="1"/>
+					</LinearGradientBrush>
+				</TabItem.Background>
+				<Grid>
+				<DataGrid x:Name="postolgrid" HorizontalAlignment="Left" Height="525" VerticalAlignment="Top" Width="1200" EnableRowVirtualization="False" IsReadOnly="True" Opacity="0.9" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeColumns="False"
+							   CanUserResizeRows="False" CanUserReorderColumns="False" FontSize="18" Grid.ColumnSpan="2" Margin="-2,0,0,0" MouseDoubleClick="postolgrid_MouseDoubleClick" >
 					<DataGrid.Resources>
 						<Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
 							<Setter Property="Background" Value="#FF13131D"  />
@@ -26,36 +76,105 @@
 					</DataGrid.Background>
 					<DataGrid.ContextMenu>
 						<ContextMenu>
-							<MenuItem x:Name="dismissal" Header="Уволить" IsEnabled="True"></MenuItem>
+							<MenuItem x:Name="prodlen" Header="Продлить проживание" IsEnabled="True"></MenuItem>
 						</ContextMenu>
 					</DataGrid.ContextMenu>
 					<DataGrid.Columns>
 						<DataGridTextColumn FontWeight="Bold"  Binding="{Binding Surname}"  Header="Фамилия" Width="*" />
 						<DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="*"/>
 						<DataGridTextColumn Binding="{Binding Secondname}" Header="Отчество" Width="*"/>
-						<DataGridTextColumn Binding="{Binding PassportId}" Header="Номер паспорта" Width="*"/>
-						<DataGridTextColumn Binding="{Binding DateOfBirthday}" Header="Дата рождения" Width="*"/>
-						<DataGridTextColumn Binding="{Binding PhoneNumber}" Header="Телефон" Width="*"/>
+							<DataGridTextColumn Binding="{Binding NumberOfApartment}" Header="Номер" Width="100"/>
+						<DataGridTextColumn Binding="{Binding Category}" Header="Категория" Width="*"/>
+							<DataGridTextColumn Binding="{Binding CountsOfSeats}" Header="Кол-во &#xA; мест" Width="100"/>
+							<DataGridTextColumn Binding="{Binding ArrivalDate}" Header="Дата заселения" Width="*"/>
+							<DataGridTextColumn Binding="{Binding DateOfDeparture}" Header="Дата выселения" Width="*"/>
+
+						</DataGrid.Columns>
+				</DataGrid>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Номера">
+				<TabItem.Background>
+					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+						<GradientStop Color="#FF4C4242" Offset="0"/>
+						<GradientStop Color="#FFC3BDBD" Offset="1"/>
+					</LinearGradientBrush>
+				</TabItem.Background>
+				<Grid Background="#FFE5E5E5">
+					<DataGrid x:Name="aparty" HorizontalAlignment="Left"  Height="595" VerticalAlignment="Top" Width="1400" EnableRowVirtualization="False" IsReadOnly="True" Opacity="0.9" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeColumns="False"
+							   CanUserResizeRows="False" CanUserReorderColumns="False" FontSize="18" Grid.ColumnSpan="4" Margin="-2,0,-3.6,-9.4" MouseDoubleClick="aparty_MouseDoubleClick">
+						<DataGrid.Resources>
+							<Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+								<Setter Property="Background" Value="#FF13131D"  />
+								<Setter Property="Foreground" Value="White"  />
+							</Style>
+
+						</DataGrid.Resources>
+						<DataGrid.Background>
+							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+								<GradientStop Color="#FFA9A19F" Offset="0"/>
+								<GradientStop Color="White" Offset="1"/>
+							</LinearGradientBrush>
+						</DataGrid.Background>
+						<DataGrid.Columns>
+							<DataGridTextColumn FontWeight="Bold"  Binding="{Binding Number}"  Header="Номер" Width="*" />
+							<DataGridTextColumn Binding="{Binding Category}" Header="Категория" Width="*"/>
+							<DataGridTextColumn Binding="{Binding CountOfSeats}" Header="Кол-во &#xA;мест" Width="100"/>
+							<DataGridTextColumn Binding="{Binding CostPerDay}" Header="Стоимость за сутки" Width="*"/>
+							<DataGridTextColumn Binding="{Binding Status}" Header="Статус" Width="*"/>
+						</DataGrid.Columns>
+					</DataGrid>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Услуги">
+				<TabItem.Background>
+					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+						<GradientStop Color="#FF4C4242" Offset="0"/>
+						<GradientStop Color="#FFC3BDBD" Offset="1"/>
+					</LinearGradientBrush>
+				</TabItem.Background>
+				<DataGrid x:Name="servicegrid"  HorizontalAlignment="Left" Height="525" VerticalAlignment="Top" Width="1187" EnableRowVirtualization="False" IsReadOnly="True" Opacity="0.9" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeColumns="False"
+							   CanUserResizeRows="False" CanUserReorderColumns="False" FontSize="18" Grid.ColumnSpan="4" Margin="0,0,0,-9.4">
+					<DataGrid.Resources>
+						<Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+							<Setter Property="Background" Value="#FF13131D"  />
+							<Setter Property="Foreground" Value="White"  />
+						</Style>
+					</DataGrid.Resources>
+					<DataGrid.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFA9A19F" Offset="0"/>
+							<GradientStop Color="White" Offset="1"/>
+						</LinearGradientBrush>
+					</DataGrid.Background>
+
+					<DataGrid.Columns>
+						<DataGridTextColumn  FontWeight="Bold"  Binding="{Binding ServiceItem}"  Header="Услуга" Width="*" />
+						<DataGridTextColumn Binding="{Binding Cost}" Header="Цена" Width="*"/>
+						<DataGridTemplateColumn Header="Описание" Width="*">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<TextBlock Text="{Binding Description}" TextWrapping="Wrap"/>
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
 
 					</DataGrid.Columns>
 				</DataGrid>
-
-			</TabItem>
-			<TabItem Header="Бронирование">
-				<Grid Background="#FFE5E5E5"/>
-			</TabItem>
-			<TabItem Header="Номера">
-				<Grid Background="#FFE5E5E5"/>
-			</TabItem>
-			<TabItem Header="Услуги">
-				<Grid Background="#FFE5E5E5"/>
 			</TabItem>
 		</TabControl>
 		<Rectangle Fill="#FF13131D" HorizontalAlignment="Left" Height="47" Margin="0,0,-0.4,0" Stroke="Black" VerticalAlignment="Top" Width="1200"/>
 		<Button x:Name="out" HorizontalAlignment="Left" Margin="1060,11,0,0" VerticalAlignment="Top" Template="{DynamicResource shabl5}" Foreground="White" Width="111" Click="out_Click"/>
-		<Image HorizontalAlignment="Left" Height="44" Margin="10,-2,0,0" VerticalAlignment="Top" Width="42"/>
-		<TextBlock x:Name="loginName" HorizontalAlignment="Left" Margin="95,10,0,0" TextWrapping="Wrap" Text="н" VerticalAlignment="Top" FontSize="18" Width="170"/>
-		<Button x:Name="addClient" IsEnabled="True" Template="{DynamicResource shabl2}" FontSize="18" Foreground="White" HorizontalAlignment="Left" Margin="487,612,0,0" VerticalAlignment="Top" Width="228" Height="40" Click="addClient_Click"  />
+		<Image HorizontalAlignment="Left" Height="44" Margin="10,2,0,0" Source="Images/programmer.png" VerticalAlignment="Top" Width="42"/>
+		<TextBlock x:Name="loginName" Text=""  Foreground="White"  FontSize="22" HorizontalAlignment="Left" Margin="64,10,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Width="179">
+			<TextBlock.Effect>
+				<DropShadowEffect
+                 ShadowDepth="4"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+			</TextBlock.Effect>
+		</TextBlock>
 
 	</Grid>
 </Window>
