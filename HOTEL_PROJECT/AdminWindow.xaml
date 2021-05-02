@@ -5,8 +5,282 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HOTEL_PROJECT"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Окно администратора" Height="700" Width="1400" WindowStartupLocation="CenterScreen">
+	<Grid>
+
+		<Rectangle Fill="#FF13131D" HorizontalAlignment="Left" Height="47" Margin="0,0,-0.4,0" Stroke="Black" VerticalAlignment="Top" Width="1400"/>
+		<Button x:Name="out" HorizontalAlignment="Left" Margin="1270,10,0,0" VerticalAlignment="Top" Template="{DynamicResource shabl5}" Foreground="White" Click="out_Click"/>
+		<TabControl HorizontalAlignment="Left" Height="623" Margin="0,47,-0.4,0" VerticalAlignment="Top" Width="1400" FontSize="20" FontFamily="Century Gothic">
+			<TabControl.Background>
+				<ImageBrush ImageSource="Images/972-9721456_humo-.png"/>
+			</TabControl.Background>
+			<TabControl.Effect>
+				<DropShadowEffect
+                 ShadowDepth="4"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+			</TabControl.Effect>
+			<TabItem Header="Сотрудники" x:Name="Employees" >
+				<TabItem.ContextMenu>
+					<ContextMenu>
+						<MenuItem x:Name="refresh" Header="Обновить" IsEnabled="True" Click="refresh_Click"></MenuItem>
+					</ContextMenu>
+				</TabItem.ContextMenu>
+				<TabItem.Background>
+					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+						<GradientStop Color="#FF4C4242" Offset="0"/>
+						<GradientStop Color="#FFC3BDBD" Offset="1"/>
+					</LinearGradientBrush>
+				</TabItem.Background>
+				<Grid Background="#FFE5E5E5">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="176*"/>
+						<ColumnDefinition Width="204*"/>
+						<ColumnDefinition Width="25*"/>
+						<ColumnDefinition Width="783*"/>
+					</Grid.ColumnDefinitions>
+					<DataGrid x:Name="employees" HorizontalAlignment="Left" Height="595" VerticalAlignment="Top" Width="1400" EnableRowVirtualization="False" IsReadOnly="True" Opacity="0.9" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeColumns="False"
+							   CanUserResizeRows="False" CanUserReorderColumns="False" FontSize="18" Grid.ColumnSpan="4" Margin="-2,0,-3.6,-9.4">
+						<DataGrid.Resources>
+							<Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+								<Setter Property="Background" Value="#FF13131D"  />
+								<Setter Property="Foreground" Value="White"  />
+							</Style>
+
+						</DataGrid.Resources>
+						<DataGrid.Background>
+							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+								<GradientStop Color="#FFA9A19F" Offset="0"/>
+								<GradientStop Color="White" Offset="1"/>
+							</LinearGradientBrush>
+						</DataGrid.Background>
+						<DataGrid.ContextMenu>
+							<ContextMenu>
+								<MenuItem x:Name="dismissal" Header="Уволить" IsEnabled="True" Click="dismissal_Click"></MenuItem>
+							</ContextMenu>
+						</DataGrid.ContextMenu>
+						<DataGrid.Columns>
+							<DataGridTextColumn FontWeight="Bold"  Binding="{Binding Surname}"  Header="Фамилия" Width="*" />
+							<DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="*"/>
+							<DataGridTextColumn Binding="{Binding Secondname}" Header="Отчество" Width="*"/>
+							<DataGridTextColumn Binding="{Binding Salary}" Header="Зарплата" Width="100"/>
+							<DataGridTextColumn Binding="{Binding PhoneNumber}" Header="Телефон" Width="*"/>
+							<DataGridTextColumn Binding="{Binding Position}" Header="Должность" Width="*"/>
+							<DataGridTextColumn Binding="{Binding DateOfBirthday}" Header="Дата рождения" Width="*"/>
+							<DataGridTextColumn Binding="{Binding DateOfHiring}" Header="Дата приема &#xA; на работу" Width="*"/>
+							<DataGridTextColumn Binding="{Binding DateOfDismissal}" Header="Дата  &#xA;увольнения" Width="*"/>
+
+						</DataGrid.Columns>
+					</DataGrid>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Номера" x:Name="Numbers">
+				<TabItem.Background>
+					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+						<GradientStop Color="#FF4C4242" Offset="0"/>
+						<GradientStop Color="#FFC3BDBD" Offset="1"/>
+					</LinearGradientBrush>
+				</TabItem.Background>
+				<Grid Background="#FFE5E5E5">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="49*"/>
+						<ColumnDefinition Width="1139*"/>
+					</Grid.ColumnDefinitions>
+					<DataGrid x:Name="aparty" HorizontalAlignment="Left"  Height="595" VerticalAlignment="Top" Width="1400" EnableRowVirtualization="False" IsReadOnly="True" Opacity="0.9" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeColumns="False"
+							   CanUserResizeRows="False" CanUserReorderColumns="False" FontSize="18" Grid.ColumnSpan="4" Margin="-2,0,-3.6,-9.4" MouseDoubleClick="aparty_MouseDoubleClick">
+						<DataGrid.Resources>
+							<Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+								<Setter Property="Background" Value="#FF13131D"  />
+								<Setter Property="Foreground" Value="White"  />
+							</Style>
+
+						</DataGrid.Resources>
+						<DataGrid.Background>
+							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+								<GradientStop Color="#FFA9A19F" Offset="0"/>
+								<GradientStop Color="White" Offset="1"/>
+							</LinearGradientBrush>
+						</DataGrid.Background>
+						<DataGrid.Columns>
+							<DataGridTextColumn FontWeight="Bold"  Binding="{Binding Number}"  Header="Номер" Width="*" />
+							<DataGridTextColumn Binding="{Binding Category}" Header="Категория" Width="*"/>
+							<DataGridTextColumn Binding="{Binding CountOfSeats}" Header="Количество мест" Width="*"/>
+							<DataGridTextColumn Binding="{Binding CostPerDay}" Header="Стоимость за сутки" Width="*"/>
+							<DataGridTextColumn Binding="{Binding Status}" Header="Статус" Width="*"/>
+						</DataGrid.Columns>
+					</DataGrid>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Добавление нового сотрудника" x:Name="addNewEmployee">
+				<TabItem.Background>
+					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+						<GradientStop Color="#FF4C4242" Offset="0"/>
+						<GradientStop Color="#FFC3BDBD" Offset="1"/>
+					</LinearGradientBrush>
+				</TabItem.Background>
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="5*"/>
+						<ColumnDefinition Width="9*"/>
+						<ColumnDefinition Width="1174*"/>
+					</Grid.ColumnDefinitions>
+					<Rectangle Fill="#FF13131D" Stroke="Black" Grid.Column="2" Opacity="0.3" Margin="10,26,339.4,78.2"/>
+
+					<TextBox x:Name="Surname" TextWrapping="Wrap" Text="" Margin="33.6,57,912,498.2" FontSize="22" Grid.Column="2"/>
+					<TextBox x:Name="Name" TextWrapping="Wrap" Text="" Margin="33.6,140,912,415.2" FontSize="22" Grid.Column="2"/>
+					<TextBox x:Name="Secondname" TextWrapping="Wrap" Text="" Margin="33.6,222,912,333.2" FontSize="22" Grid.Column="2"/>
+					<TextBox x:Name="PhoneNumber" TextWrapping="Wrap" Text="" Margin="33.6,309,912,246.2" FontSize="22" Grid.Column="2"/>
+					<TextBox x:Name="Salary" TextWrapping="Wrap" Text="" Margin="33.8,396,911.4,159.2" FontSize="22" Grid.Column="2"/>
+					<DatePicker x:Name="Dateofbirthday" HorizontalAlignment="Left" Margin="522,57,0,0" VerticalAlignment="Top" Height="40" Width="181" FontSize="22" Grid.Column="2"/>
+					<DatePicker x:Name="Dateofhiring" HorizontalAlignment="Left" Margin="726,57,0,0" VerticalAlignment="Top" Height="40" Width="181" FontSize="22" Grid.Column="2"/>
+					<ComboBox x:Name="position_combo" Grid.Column="2" IsEditable="True" IsReadOnly="False" HorizontalAlignment="Left" Margin="522,140,0,0" VerticalAlignment="Top" Width="181" Height="40" >
+						<ComboBox.Effect>
+							<DropShadowEffect
+                 ShadowDepth="4"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+						</ComboBox.Effect>
+					</ComboBox>
+					<ComboBox x:Name="AccessLevel" HorizontalAlignment="Left" Margin="726,140,0,0" VerticalAlignment="Top" Width="181" Height="40" Grid.Column="2" >
+						<ComboBox.Effect>
+							<DropShadowEffect
+                 ShadowDepth="4"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+						</ComboBox.Effect>
+						<ComboBoxItem Content="1"/>
+						<ComboBoxItem Content="2"/>
+						<ComboBoxItem Content="3"/>
+					</ComboBox>
+					<Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="206" Margin="519,222,0,0" Stroke="Black" VerticalAlignment="Top" Width="486" Grid.Column="2"/>
+					<TextBox x:Name="loginEnter" HorizontalAlignment="Left" IsReadOnly="True" Height="40" Margin="652,269,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="228" FontSize="22" Grid.Column="2" GotFocus="loginEnter_GotFocus" LostFocus="loginEnter_LostFocus"/>
+					<TextBox x:Name="passwordEnter" HorizontalAlignment="Left" IsReadOnly="True" Height="40" Margin="652,352,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="228" FontSize="22" Grid.Column="2" LostFocus="passwordEnter_LostFocus" GotFocus="passwordEnter_GotFocus" />
+					<Button x:Name="Registr" IsEnabled="True" Template="{DynamicResource shabl2}" FontSize="18" Foreground="White" HorizontalAlignment="Left" Margin="1044,469,0,0" VerticalAlignment="Top" Width="228" Height="40" Grid.Column="2" Click="Registr_Click"/>
+					<Label Content="Фамилия"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="33.6,26,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Grid.Column="2">
+						<Label.Effect>
+							<DropShadowEffect
+                 ShadowDepth="4"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+						</Label.Effect>
+					</Label>
+					<Label Content="Имя"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="33.6,108,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Grid.Column="2">
+						<Label.Effect>
+							<DropShadowEffect
+                 ShadowDepth="4"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+						</Label.Effect>
+					</Label>
+					<Label Content="Отчество"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="33.6,185,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Grid.Column="2">
+						<Label.Effect>
+							<DropShadowEffect
+                 ShadowDepth="4"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+						</Label.Effect>
+					</Label>
+					<Label Content="Номер телефона"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="33.6,272,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Grid.Column="2">
+						<Label.Effect>
+							<DropShadowEffect
+                 ShadowDepth="4"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+						</Label.Effect>
+					</Label>
+					<Label Content="Заработная плата"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="33.8,359,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Grid.Column="2">
+						<Label.Effect>
+							<DropShadowEffect
+                 ShadowDepth="4"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+						</Label.Effect>
+					</Label>
+					<Label Content="Дата рождения"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="519,26,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Grid.Column="2">
+						<Label.Effect>
+							<DropShadowEffect
+                 ShadowDepth="4"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+						</Label.Effect>
+					</Label>
+					<Label Content="Дата приема на работу"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="726,26,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Grid.Column="2">
+						<Label.Effect>
+							<DropShadowEffect
+                 ShadowDepth="4"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+						</Label.Effect>
+					</Label>
+					<Label Content="Должность"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="522,108,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Grid.Column="2">
+						<Label.Effect>
+							<DropShadowEffect
+				 ShadowDepth="4"
+				 Direction="330"
+				 Color="Black"
+				 Opacity="0.5"/>
+						</Label.Effect>
+					</Label>
+					<Label Content="Уровень доступа"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="726,108,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Grid.Column="2">
+						<Label.Effect>
+							<DropShadowEffect
+				 ShadowDepth="4"
+				 Direction="330"
+				 Color="Black"
+				 Opacity="0.5"/>
+						</Label.Effect>
+					</Label>
+					<Label Content="Логин"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="652,232,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Grid.Column="2">
+						<Label.Effect>
+							<DropShadowEffect
+				 ShadowDepth="4"
+				 Direction="330"
+				 Color="Black"
+				 Opacity="0.5"/>
+						</Label.Effect>
+					</Label>
+					<Label Content="Пароль"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="652,312,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Grid.Column="2">
+						<Label.Effect>
+							<DropShadowEffect
+				 ShadowDepth="4"
+				 Direction="330"
+				 Color="Black"
+				 Opacity="0.5"/>
+						</Label.Effect>
+					</Label>
+					<Label Content="Регистрация нового сотрудника"  Foreground="#FF433E3E"  FontSize="16" HorizontalAlignment="Left" Margin="633,396,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Grid.Column="2">
+						<Label.Effect>
+							<DropShadowEffect
+				 ShadowDepth="4"
+				 Direction="330"
+				 Color="Black"
+				 Opacity="0.5"/>
+						</Label.Effect>
+					</Label>
+
+				</Grid>
+			</TabItem>
+		</TabControl>
+		<Image HorizontalAlignment="Left" Height="44" Margin="10,2,0,0" Source="Images/programmer.png" VerticalAlignment="Top" Width="42"/>
+		<TextBlock x:Name="loginName" Text=""  Foreground="White"  FontSize="22" HorizontalAlignment="Left" Margin="64,10,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Width="179">
+			<TextBlock.Effect>
+				<DropShadowEffect
+                 ShadowDepth="4"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+			</TextBlock.Effect>
+		</TextBlock>
+
+	</Grid>
 </Window>

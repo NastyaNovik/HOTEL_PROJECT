@@ -1,0 +1,61 @@
+﻿<Window x:Class="HOTEL_PROJECT.Empuser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HOTEL_PROJECT"
+        mc:Ignorable="d"
+        Title="Окно сотрудника" Height="700" Width="1200" WindowStartupLocation="CenterScreen">
+	<Grid>
+		<TabControl HorizontalAlignment="Left" Height="623" Margin="0,47,-0.4,0" VerticalAlignment="Top" Width="1194">
+			<TabItem Header="Клиенты">
+				<DataGrid x:Name="employees" HorizontalAlignment="Left" Height="525" VerticalAlignment="Top" Width="1200" EnableRowVirtualization="False" IsReadOnly="True" Opacity="0.9" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeColumns="False"
+							   CanUserResizeRows="False" CanUserReorderColumns="False" FontSize="18" Grid.ColumnSpan="4" Margin="-2,0,-10,-9.4">
+					<DataGrid.Resources>
+						<Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+							<Setter Property="Background" Value="#FF13131D"  />
+							<Setter Property="Foreground" Value="White"  />
+						</Style>
+
+					</DataGrid.Resources>
+					<DataGrid.Background>
+						<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+							<GradientStop Color="#FFA9A19F" Offset="0"/>
+							<GradientStop Color="White" Offset="1"/>
+						</LinearGradientBrush>
+					</DataGrid.Background>
+					<DataGrid.ContextMenu>
+						<ContextMenu>
+							<MenuItem x:Name="dismissal" Header="Уволить" IsEnabled="True"></MenuItem>
+						</ContextMenu>
+					</DataGrid.ContextMenu>
+					<DataGrid.Columns>
+						<DataGridTextColumn FontWeight="Bold"  Binding="{Binding Surname}"  Header="Фамилия" Width="*" />
+						<DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="*"/>
+						<DataGridTextColumn Binding="{Binding Secondname}" Header="Отчество" Width="*"/>
+						<DataGridTextColumn Binding="{Binding PassportId}" Header="Номер паспорта" Width="*"/>
+						<DataGridTextColumn Binding="{Binding DateOfBirthday}" Header="Дата рождения" Width="*"/>
+						<DataGridTextColumn Binding="{Binding PhoneNumber}" Header="Телефон" Width="*"/>
+
+					</DataGrid.Columns>
+				</DataGrid>
+
+			</TabItem>
+			<TabItem Header="Бронирование">
+				<Grid Background="#FFE5E5E5"/>
+			</TabItem>
+			<TabItem Header="Номера">
+				<Grid Background="#FFE5E5E5"/>
+			</TabItem>
+			<TabItem Header="Услуги">
+				<Grid Background="#FFE5E5E5"/>
+			</TabItem>
+		</TabControl>
+		<Rectangle Fill="#FF13131D" HorizontalAlignment="Left" Height="47" Margin="0,0,-0.4,0" Stroke="Black" VerticalAlignment="Top" Width="1200"/>
+		<Button x:Name="out" HorizontalAlignment="Left" Margin="1060,11,0,0" VerticalAlignment="Top" Template="{DynamicResource shabl5}" Foreground="White" Width="111" Click="out_Click"/>
+		<Image HorizontalAlignment="Left" Height="44" Margin="10,-2,0,0" VerticalAlignment="Top" Width="42"/>
+		<TextBlock x:Name="loginName" HorizontalAlignment="Left" Margin="95,10,0,0" TextWrapping="Wrap" Text="н" VerticalAlignment="Top" FontSize="18" Width="170"/>
+		<Button x:Name="addClient" IsEnabled="True" Template="{DynamicResource shabl2}" FontSize="18" Foreground="White" HorizontalAlignment="Left" Margin="487,612,0,0" VerticalAlignment="Top" Width="228" Height="40" Click="addClient_Click"  />
+
+	</Grid>
+</Window>

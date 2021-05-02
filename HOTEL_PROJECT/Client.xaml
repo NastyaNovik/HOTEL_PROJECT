@@ -1,0 +1,78 @@
+﻿<Window x:Class="HOTEL_PROJECT.Client"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HOTEL_PROJECT"
+        mc:Ignorable="d"
+        Title="Регистрация клиента" Height="650" Width="400">
+	<Grid>
+		<Grid.Background>
+			<ImageBrush ImageSource="Images/972-9721456_humo-.png"/>
+		</Grid.Background>
+		<Rectangle Fill="#FF13131D" Stroke="Black" Opacity="0.2" Margin="26,10,28.6,92"/>
+
+		<TextBox x:Name="Surname" TextWrapping="Wrap" Text="" Height="40" Margin="76,41,80.6,539" FontSize="22"/>
+		<TextBox x:Name="Name" TextWrapping="Wrap" Text="" Height="40" Margin="76,124,80.6,451" FontSize="22"/>
+		<TextBox x:Name="Secondname" TextWrapping="Wrap" Height="40" Text="" Margin="76,206,80.6,369" FontSize="22"/>
+		<TextBox x:Name="PhoneNumber" TextWrapping="Wrap" Height="40" Text="" Margin="76,293,80.6,282" FontSize="22"/>
+		<TextBox x:Name="PassportId" TextWrapping="Wrap" Height="40" Text="" Margin="76,380,80.6,200" FontSize="22"/>
+		<DatePicker x:Name="Dateofbirthday" HorizontalAlignment="Left" Margin="76,468,0,0" VerticalAlignment="Top" Height="40" Width="237" FontSize="22"/>
+		<Label Content="Фамилия"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="76,4,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic">
+			<Label.Effect>
+				<DropShadowEffect
+					ShadowDepth="4"
+					Direction="330"
+					Color="Black"
+					Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+		<Label Content="Имя"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="76,87,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic">
+			<Label.Effect>
+				<DropShadowEffect
+					ShadowDepth="4"
+					Direction="330"
+					Color="Black"
+					Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+		<Label Content="Отчество"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="76,169,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic">
+			<Label.Effect>
+				<DropShadowEffect
+					ShadowDepth="4"
+					Direction="330"
+					Color="Black"
+					Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+		<Label Content="Номер телефона"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="76,256,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic">
+			<Label.Effect>
+				<DropShadowEffect
+					ShadowDepth="4"
+					Direction="330"
+					Color="Black"
+					Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+		<Label Content="Номер паспорта"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="76,343,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic">
+			<Label.Effect>
+				<DropShadowEffect
+					ShadowDepth="4"
+					Direction="330"
+					Color="Black"
+					Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+		<Label Content="Дата рождения"  Foreground="Black"  FontSize="22" HorizontalAlignment="Left" Margin="76,431,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic" Width="184">
+			<Label.Effect>
+				<DropShadowEffect
+					ShadowDepth="4"
+					Direction="330"
+					Color="Black"
+					Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+		<Button x:Name="addClient" IsEnabled="True" Template="{DynamicResource shabl7}" FontSize="18" Foreground="White" HorizontalAlignment="Left" Margin="76,551,0,0" VerticalAlignment="Top" Width="237" Height="40" />
+
+	</Grid>
+</Window>

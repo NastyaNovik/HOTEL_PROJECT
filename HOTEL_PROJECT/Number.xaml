@@ -1,0 +1,63 @@
+﻿<Window x:Class="HOTEL_PROJECT.Number"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HOTEL_PROJECT"
+        mc:Ignorable="d"
+        Title="Номер" Height="450" Width="900" WindowStartupLocation="CenterScreen"  ResizeMode="CanMinimize" >
+	<Grid>
+		<Grid.Background >
+			<ImageBrush ImageSource="Images\bac.jpg" Opacity="0.7" />
+		</Grid.Background>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="400*"/>
+			<ColumnDefinition Width="600*"/>
+		</Grid.ColumnDefinitions>
+		<Rectangle Fill="#FF303031" HorizontalAlignment="Left" Height="250" Margin="14,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="861" Grid.ColumnSpan="2" Opacity="0.5"/>
+		<Border BorderBrush="#FF353434" BorderThickness="1" HorizontalAlignment="Left" Height="132" Margin="14,265,0,0" VerticalAlignment="Top" Width="861" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2"/>
+		<TextBlock x:Name="numb" FontSize="18" Grid.Column="1" HorizontalAlignment="Left" Margin="100.4,45,0,0"   VerticalAlignment="Top" Height="30" Width="138" />
+		<TextBlock x:Name="description" FontSize="18" HorizontalAlignment="Left" Height="108" Margin="25,279,0,0"  VerticalAlignment="Top" Width="850" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
+		<TextBlock x:Name="cost" FontSize="18" Grid.Column="1" HorizontalAlignment="Left" Margin="248.4,151,0,0"   VerticalAlignment="Top" Height="30" Width="138" />
+		<TextBlock x:Name="cat"  FontSize="18" Grid.Column="1" HorizontalAlignment="Left" Margin="146.4,81,0,0"  VerticalAlignment="Top" Height="30" Width="170" />
+		<TextBlock x:Name="countofseats"  Grid.Column="1" FontSize="18" Margin="267.4,118,253.6,272" Height="30"/>
+		<Image x:Name="photo" Grid.Column="0" HorizontalAlignment="Left" Height="184" Margin="65,40,0,0" VerticalAlignment="Top" Width="283"/>
+		<Label Content="Номер: " FontSize="17" Grid.Column="1" HorizontalAlignment="Left" Margin="10.4,40,0,0" VerticalAlignment="Top">
+			<Label.Effect>
+				<DropShadowEffect
+                 ShadowDepth="2"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+		<Label Content="Категория:" FontSize="17" Height="30" Grid.Column="1" HorizontalAlignment="Left" Margin="10.4,77,0,0" VerticalAlignment="Top">
+			<Label.Effect>
+				<DropShadowEffect
+                 ShadowDepth="2"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+		<Label Content="Количество спальных мест: " Height="30" FontSize="17" Grid.Column="1" HorizontalAlignment="Left" Margin="10.4,112,0,0" VerticalAlignment="Top">
+			<Label.Effect>
+				<DropShadowEffect
+                 ShadowDepth="2"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+		<Label Content="Стоимость за сутки (руб.): " Height="38" FontSize="17" Grid.Column="1" HorizontalAlignment="Left" Margin="10.4,147,0,0" VerticalAlignment="Top">
+			<Label.Effect>
+				<DropShadowEffect
+                 ShadowDepth="2"
+                 Direction="330"
+                 Color="Black"
+                 Opacity="0.5"/>
+			</Label.Effect>
+		</Label>
+
+	</Grid>
+</Window>
