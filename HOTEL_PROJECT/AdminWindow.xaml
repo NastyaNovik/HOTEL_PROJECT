@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HOTEL_PROJECT"
         mc:Ignorable="d"
-        Title="Окно администратора" Height="700" Width="1400" WindowStartupLocation="CenterScreen" >
+        Title="Окно администратора" Height="700" Width="1400" WindowStartupLocation="CenterScreen" Activated="Window_Activated" >
 	<Grid>
 
 		<Rectangle Fill="#FF13131D" HorizontalAlignment="Left" Height="47" Margin="0,0,-0.4,0" Stroke="Black" VerticalAlignment="Top" Width="1400"/>
@@ -22,11 +22,7 @@
                  Opacity="0.5"/>
 			</TabControl.Effect>
 			<TabItem Header="Сотрудники" x:Name="Employees" >
-				<TabItem.ContextMenu>
-					<ContextMenu>
-						<MenuItem x:Name="refresh" Header="Обновить" IsEnabled="True" Click="refresh_Click"></MenuItem>
-					</ContextMenu>
-				</TabItem.ContextMenu>
+
 				<TabItem.Background>
 					<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
 						<GradientStop Color="#FF4C4242" Offset="0"/>
@@ -40,8 +36,8 @@
 						<ColumnDefinition Width="25*"/>
 						<ColumnDefinition Width="783*"/>
 					</Grid.ColumnDefinitions>
-					<DataGrid x:Name="employees" HorizontalAlignment="Left" Height="595" VerticalAlignment="Top" Width="1400" EnableRowVirtualization="False" IsReadOnly="True" Opacity="0.9" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeColumns="False"
-							   CanUserResizeRows="False" CanUserReorderColumns="False" FontSize="18" Grid.ColumnSpan="4" Margin="-2,0,-3.6,-9.4">
+					<DataGrid x:Name="employees" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Left" Height="595" VerticalAlignment="Top" Width="1386" EnableRowVirtualization="False" IsReadOnly="True" Opacity="0.9" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeColumns="False"
+							   CanUserResizeRows="False" CanUserReorderColumns="False" FontSize="18" Grid.ColumnSpan="4" Margin="-2,0,0,-7.8">
 						<DataGrid.Resources>
 							<Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
 								<Setter Property="Background" Value="#FF13131D"  />
@@ -82,13 +78,14 @@
 						<GradientStop Color="#FFC3BDBD" Offset="1"/>
 					</LinearGradientBrush>
 				</TabItem.Background>
-				<Grid Background="#FFE5E5E5">
+				<Grid >
+					
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="49*"/>
 						<ColumnDefinition Width="1139*"/>
 					</Grid.ColumnDefinitions>
-					<DataGrid x:Name="aparty" HorizontalAlignment="Left"  Height="595" VerticalAlignment="Top" Width="1400" EnableRowVirtualization="False" IsReadOnly="True" Opacity="0.9" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeColumns="False"
-							   CanUserResizeRows="False" CanUserReorderColumns="False" FontSize="18" Grid.ColumnSpan="4" Margin="-2,0,-3.6,-9.4" MouseDoubleClick="aparty_MouseDoubleClick">
+					<DataGrid x:Name="aparty" HorizontalAlignment="Left"  Height="595" VerticalAlignment="Top" Width="900" EnableRowVirtualization="False" IsReadOnly="True" Opacity="0.9" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserResizeColumns="False"
+							   CanUserResizeRows="False" CanUserReorderColumns="False" FontSize="18" Margin="197.4,-2,0,-5.8" MouseDoubleClick="aparty_MouseDoubleClick" Grid.Column="1">
 						<DataGrid.Resources>
 							<Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
 								<Setter Property="Background" Value="#FF13131D"  />

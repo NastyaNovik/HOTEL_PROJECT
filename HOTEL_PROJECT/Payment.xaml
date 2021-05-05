@@ -11,7 +11,7 @@
 			<ImageBrush ImageSource="Images/972-9721456_humo-.png"/>
 		</Grid.Background>
 		<Rectangle Fill="#FF616168" Opacity="0.8" HorizontalAlignment="Left" Height="673" Stroke="Black" VerticalAlignment="Top" Width="418" Margin="35,59,0,0"/>
-		<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="35" Margin="35,59,0,0" VerticalAlignment="Top" Width="146"/>
+		<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="35" Margin="35,59,0,0" VerticalAlignment="Top" Width="192"/>
 		<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="35,128,0,0" VerticalAlignment="Top" Width="382"/>
 		<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="35" Margin="35,134,0,0" VerticalAlignment="Top" Width="192"/>
 		<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="36,203,0,0" VerticalAlignment="Top" Width="382"/>
@@ -63,7 +63,7 @@
 			  Opacity="0.5"/>
 			</TextBlock.Effect>
 		</TextBlock>
-		<Label Content="ФИО клиента"  Foreground="Black"  FontSize="20" HorizontalAlignment="Left" Margin="35,59,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic">
+		<Label Content="ФИО постояльца"  Foreground="Black"  FontSize="20" HorizontalAlignment="Left" Margin="35,59,0,0" VerticalAlignment="Top" Opacity="1" FontFamily="Century Gothic">
 			<Label.Effect>
 				<DropShadowEffect
 			  ShadowDepth="4"
@@ -289,5 +289,7 @@
 			  Opacity="0.5"/>
 			</TextBlock.Effect>
 		</TextBlock>
+		<Button  IsEnabled="True" Template="{DynamicResource shabl8}" FontSize="18" Foreground="White" HorizontalAlignment="Left" Margin="260,730,0,0" VerticalAlignment="Top" Width="228" Height="40" Click="Button_Click"  />
+
 	</Grid>
 </Window>

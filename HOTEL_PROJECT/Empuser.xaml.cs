@@ -42,7 +42,7 @@ namespace HOTEL_PROJECT
             getServices();
             all_services.RemoveAt(0);
             servicegrid.ItemsSource = all_services;
-            getRoomerswithServices();
+            getRoomersServices();
             postolgrid.ItemsSource = all_roomers;
             getApartments();
             aparty.ItemsSource = all_apartments;
@@ -51,7 +51,7 @@ namespace HOTEL_PROJECT
         {
             try
             {
-                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str))
+                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str2))
                 {
                     connection.Open();
                     OracleParameter clien = new OracleParameter
@@ -61,7 +61,7 @@ namespace HOTEL_PROJECT
                         OracleDbType = OracleDbType.RefCursor
                     };
 
-                    using (OracleCommand command = new OracleCommand("getClients"))
+                    using (OracleCommand command = new OracleCommand("admin.getClients"))
                     {
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
@@ -94,7 +94,7 @@ namespace HOTEL_PROJECT
         {
             try
             {
-                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str))
+                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str2))
                 {
                     connection.Open();
                     OracleParameter servic = new OracleParameter
@@ -104,7 +104,7 @@ namespace HOTEL_PROJECT
                         OracleDbType = OracleDbType.RefCursor
                     };
 
-                    using (OracleCommand command = new OracleCommand("getServices"))
+                    using (OracleCommand command = new OracleCommand("admin.getServices"))
                     {
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
@@ -129,11 +129,11 @@ namespace HOTEL_PROJECT
                 MessageBox.Show(ex.Message);
             }
         }
-        public void getRoomerswithServices()
+        public void getRoomersServices()
         {
             try
             {
-                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str))
+                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str2))
                 {
                     connection.Open();
                     OracleParameter room = new OracleParameter
@@ -143,7 +143,7 @@ namespace HOTEL_PROJECT
                         OracleDbType = OracleDbType.RefCursor
                     };
 
-                    using (OracleCommand command = new OracleCommand("getRoomers"))
+                    using (OracleCommand command = new OracleCommand("admin.getRoomers"))
                     {
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
@@ -190,7 +190,7 @@ namespace HOTEL_PROJECT
         {
             try
             {
-                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str))
+                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str2))
                 {
                     connection.Open();
                     OracleParameter apart = new OracleParameter
@@ -200,7 +200,7 @@ namespace HOTEL_PROJECT
                         OracleDbType = OracleDbType.RefCursor
                     };
 
-                    using (OracleCommand command = new OracleCommand("getApartments"))
+                    using (OracleCommand command = new OracleCommand("admin.getApartments"))
                     {
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
@@ -257,7 +257,7 @@ namespace HOTEL_PROJECT
             all_roomers.Clear();
             getClients();
             clientsgrid.ItemsSource = all_clients;
-            getRoomerswithServices();
+            getRoomersServices();
             postolgrid.ItemsSource = all_roomers;
             getApartments();
             aparty.ItemsSource = all_apartments;
@@ -271,8 +271,36 @@ namespace HOTEL_PROJECT
 
         private void postolgrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Payment payment = new Payment(all_roomers[postolgrid.SelectedIndex]);
-            payment.Show();
+           Payment payment = new Payment(all_roomers[postolgrid.SelectedIndex]);
+           payment.Show();
+        }
+
+        private void prodlen_Click(object sender, RoutedEventArgs e)
+        {
+            Prolongation prolongation = new Prolongation(all_roomers[postolgrid.SelectedIndex]);
+            prolongation.Show();
+        }
+
+        private void sokr_Click(object sender, RoutedEventArgs e)
+        {
+            Decrease decrease = new Decrease(all_roomers[postolgrid.SelectedIndex]);
+            decrease.Show();
+        }
+
+
+
+        private void refresh_Click(object sender, RoutedEventArgs e)
+        {
+            all_roomers.Clear();
+            getRoomersServices();
+            postolgrid.ItemsSource = all_roomers;
+        }
+
+        private void refreshapart_Click(object sender, RoutedEventArgs e)
+        {
+            all_apartments.Clear();
+            getApartments();
+            aparty.ItemsSource = all_apartments;
         }
     }
 }

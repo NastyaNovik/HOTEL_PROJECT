@@ -31,7 +31,7 @@ namespace HOTEL_PROJECT
         {
             try
             {
-                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str))
+                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str2))
                 {
                     connection.Open();
                     OracleParameter surname = new OracleParameter
@@ -77,7 +77,7 @@ namespace HOTEL_PROJECT
                         Value = PhoneNumber.Text
                     };
 
-                    using (OracleCommand command = new OracleCommand("addClient"))
+                    using (OracleCommand command = new OracleCommand("admin.addClient"))
                     {
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;

@@ -40,12 +40,13 @@ namespace HOTEL_PROJECT
             getServices();
             getEmptyApartments();
             Dateofarrival.DisplayDateStart = DateTime.Now;
+           
         }
         public void getFIOEMp()
         {
             try
             {
-                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str))
+                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str2))
                 {
                     connection.Open();
                     OracleParameter login = new OracleParameter
@@ -62,7 +63,7 @@ namespace HOTEL_PROJECT
                         OracleDbType = OracleDbType.RefCursor
                     };
 
-                    using (OracleCommand command = new OracleCommand("getEmployeeFIO"))
+                    using (OracleCommand command = new OracleCommand("admin.getEmployeeFIO"))
                     {
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
@@ -93,7 +94,7 @@ namespace HOTEL_PROJECT
             servic_combo.Items.Clear();
             try
             {
-                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str))
+                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str2))
                 {
                     connection.Open();
                     OracleParameter servic = new OracleParameter
@@ -103,7 +104,7 @@ namespace HOTEL_PROJECT
                         OracleDbType = OracleDbType.RefCursor
                     };
 
-                    using (OracleCommand command = new OracleCommand("getServices"))
+                    using (OracleCommand command = new OracleCommand("admin.getServices"))
                     {
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
@@ -124,11 +125,61 @@ namespace HOTEL_PROJECT
                 MessageBox.Show(ex.Message);
             }
         }
+        public void getEmptyApartmentsbeforereservation()
+        {
+            try
+            {
+                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str2))
+                {
+                    connection.Open();
+                    OracleParameter arivpart = new OracleParameter
+                    {
+                        ParameterName = "ArrivalDate_in",
+                        Direction = ParameterDirection.Input,
+                        OracleDbType = OracleDbType.Date,
+                        Value = Dateofarrival.SelectedDate
+                    };
+                    OracleParameter depart = new OracleParameter
+                    {
+                        ParameterName = "DateOfDeparture_in",
+                        Direction = ParameterDirection.Input,
+                        OracleDbType = OracleDbType.Date,
+                        Value = Dateofadeparture.SelectedDate
+                    };
+                    OracleParameter apart = new OracleParameter
+                    {
+                        ParameterName = "apart",
+                        Direction = ParameterDirection.Output,
+                        OracleDbType = OracleDbType.RefCursor
+                    };
+
+                    using (OracleCommand command = new OracleCommand("admin.getEmptyApartmentsbeforereservation"))
+                    {
+                        command.Connection = connection;
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddRange(new OracleParameter[] { arivpart,depart,apart });
+                        var reader = command.ExecuteReader();
+                        DataTable dt = new DataTable();
+                        dt.Load(reader);
+
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            apartment_combo.Items.Add(row["NumberOfApartment"].ToString() + " " + row["Category"].ToString() + " " +
+                                 row["CountsOfSeats"].ToString());
+                        }
+                    }
+                }
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         public void getEmptyApartments()
         {
             try
             {
-                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str))
+                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str2))
                 {
                     connection.Open();
                     OracleParameter apart = new OracleParameter
@@ -138,7 +189,7 @@ namespace HOTEL_PROJECT
                         OracleDbType = OracleDbType.RefCursor
                     };
 
-                    using (OracleCommand command = new OracleCommand("getEmptyApartments"))
+                    using (OracleCommand command = new OracleCommand("admin.getEmptyApartments"))
                     {
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
@@ -164,7 +215,7 @@ namespace HOTEL_PROJECT
         {
             try
             {
-                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str))
+                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str2))
                 {
                     connection.Open();
                     OracleParameter service = new OracleParameter
@@ -181,7 +232,7 @@ namespace HOTEL_PROJECT
                         OracleDbType = OracleDbType.RefCursor
                     };
 
-                    using (OracleCommand command = new OracleCommand("getServiceId"))
+                    using (OracleCommand command = new OracleCommand("admin.getServiceId"))
                     {
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
@@ -206,7 +257,7 @@ namespace HOTEL_PROJECT
         {
             try
             {
-                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str))
+                using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str2))
                 {
                     connection.Open();
                     OracleParameter service = new OracleParameter
@@ -223,7 +274,7 @@ namespace HOTEL_PROJECT
                         OracleDbType = OracleDbType.RefCursor
                     };
 
-                    using (OracleCommand command = new OracleCommand("getApartmentId"))
+                    using (OracleCommand command = new OracleCommand("admin.getApartmentId"))
                     {
                         command.Connection = connection;
                         command.CommandType = CommandType.StoredProcedure;
@@ -248,12 +299,14 @@ namespace HOTEL_PROJECT
         private void Dateofarrival_CalendarClosed(object sender, RoutedEventArgs e)
         {
             Dateofadeparture.DisplayDateStart = Dateofarrival.SelectedDate.Value.AddDays(1);
+            Dateofadeparture.IsEnabled = true;
+          // Dateofadeparture.DisplayDateStart = Dateofarrival.SelectedDate;
 
         }
 
         private void addClient_Click(object sender, RoutedEventArgs e)
         {
-            if (apartment_combo.Text == "")
+            if (apartment_combo.Text == ""||Dateofarrival.SelectedDate==null||Dateofadeparture.SelectedDate==null||servic_combo.Text=="")
             {
                 MessageBox.Show("Не все поля заполнены");
             }
@@ -265,7 +318,7 @@ namespace HOTEL_PROJECT
             
                 try
                 {
-                    using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str))
+                    using (OracleConnection connection = new OracleConnection(OracleDatabaseConnection.str2))
                     {
                         connection.Open();
                         OracleParameter clientid = new OracleParameter
@@ -310,7 +363,7 @@ namespace HOTEL_PROJECT
                             OracleDbType = OracleDbType.Int32,
                             Value = serviceobj.Id
                         };
-                        using (OracleCommand command = new OracleCommand("addPostoyalec"))
+                        using (OracleCommand command = new OracleCommand("admin.addPostoyalec"))
                         {
                             command.Connection = connection;
                             command.CommandType = CommandType.StoredProcedure;
@@ -327,6 +380,19 @@ namespace HOTEL_PROJECT
                 }
 
             }
+            getEmptyApartments();
+        }
+
+        private void apartment_combo_GotFocus(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Dateofadeparture_CalendarClosed(object sender, RoutedEventArgs e)
+        {
+            apartment_combo.Items.Clear();
+            getEmptyApartmentsbeforereservation();
+            getEmptyApartments();
         }
     }
 }

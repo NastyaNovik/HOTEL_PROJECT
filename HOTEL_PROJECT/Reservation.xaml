@@ -45,9 +45,9 @@
 		<TextBlock x:Name="nameClient" Foreground="White" HorizontalAlignment="Left" FontSize="20" Margin="276,87,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="40" Width="207"/>
 		<TextBlock x:Name="secondNameClient" Foreground="White" HorizontalAlignment="Left" FontSize="20" Margin="522,87,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="40" Width="207"/>
 		<DatePicker x:Name="Dateofarrival" HorizontalAlignment="Left" Margin="68,404,0,0" VerticalAlignment="Top" Height="40" Width="258" FontSize="22" CalendarClosed="Dateofarrival_CalendarClosed"/>
-		<DatePicker x:Name="Dateofadeparture" HorizontalAlignment="Left" Margin="471,404,0,0" VerticalAlignment="Top" Height="40" Width="258" FontSize="22"/>
+		<DatePicker x:Name="Dateofadeparture" HorizontalAlignment="Left" Margin="471,404,0,0" VerticalAlignment="Top" Height="40" Width="258" FontSize="22" IsEnabled="False" CalendarClosed="Dateofadeparture_CalendarClosed"/>
 
-		<ComboBox x:Name="apartment_combo" FontSize="20" IsEditable="True" IsReadOnly="False" HorizontalAlignment="Left" Margin="68,302,0,0" VerticalAlignment="Top" Width="258" Height="40" >
+		<ComboBox x:Name="apartment_combo" FontSize="20" IsEditable="True" IsReadOnly="False" HorizontalAlignment="Left" Margin="68,302,0,0" VerticalAlignment="Top" Width="258" Height="40" GotFocus="apartment_combo_GotFocus" >
 			<ComboBox.Effect>
 				<DropShadowEffect
 			  ShadowDepth="4"

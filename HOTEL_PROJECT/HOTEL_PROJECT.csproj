@@ -61,6 +61,7 @@
     </Reference>
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -85,6 +86,9 @@
     <Compile Include="Client.xaml.cs">
       <DependentUpon>ClientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Decrease.xaml.cs">
+      <DependentUpon>Decrease.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Empuser.xaml.cs">
       <DependentUpon>Empuser.xaml</DependentUpon>
     </Compile>
@@ -95,6 +99,9 @@
     <Compile Include="Classes\Employee.cs" />
     <Compile Include="Payment.xaml.cs">
       <DependentUpon>Payment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Prolongation.xaml.cs">
+      <DependentUpon>Prolongation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reservation.xaml.cs">
       <DependentUpon>Reservation.xaml</DependentUpon>
@@ -122,6 +129,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Decrease.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Empuser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +142,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Payment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Prolongation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -66,8 +66,8 @@
     </ControlTemplate>
 
     <ControlTemplate  x:Key="shabl6" TargetType="Button">
-        <Border  BorderBrush="#FFB8B8D0"  BorderThickness="1" Height="20" Width="120" Background ="#FF2F2C2C" Opacity="0.9" >
-            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Первое" />
+        <Border  BorderBrush="#FFB8B8D0"  BorderThickness="1" Height="40" Width="228" Background ="#FF2F2C2C" Opacity="0.9" >
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Сохранить" />
         </Border>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
@@ -90,8 +90,8 @@
     </ControlTemplate>
 
     <ControlTemplate  x:Key="shabl8" TargetType="Button">
-        <Border  BorderBrush="#FFB8B8D0"  BorderThickness="1" Height="20" Width="120" Background ="#FF2F2C2C" Opacity="0.9" >
-            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Салаты" />
+        <Border  BorderBrush="#FFB8B8D0"  BorderThickness="1" Height="30" Width="158" Background ="#FF2F2C2C" Opacity="0.9" >
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Отправить счет" />
         </Border>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="true">

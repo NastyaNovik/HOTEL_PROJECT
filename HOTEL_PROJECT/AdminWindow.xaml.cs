@@ -207,12 +207,15 @@ namespace HOTEL_PROJECT
                         command.ExecuteNonQuery();
                         MessageBox.Show("Сотрудник успешно добавлен!");
                     }
+                    
                 }
+                
             }
             catch (OracleException ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            
         }
         public void getApartments()
         {
@@ -382,9 +385,7 @@ namespace HOTEL_PROJECT
             }
         }
 
-       
-
-        private void refresh_Click(object sender, RoutedEventArgs e)
+        private void Window_Activated(object sender, EventArgs e)
         {
             all_employees.Clear();
             getEmployees();
